@@ -148,7 +148,3 @@ For any questions or concerns regarding this project, please contact:
 
 *   **Name:** Junpeng Kou
 *   **Email:** `junpeng.kou@mail.mcgill.ca`
-content_copy
-download
-Use code with caution.
-Markdown
