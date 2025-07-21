@@ -1,133 +1,98 @@
-# MMA-Community-Project-McGill-Football-Handoff
+# McGill Football Analytics Project - Final Handoff
+
+**Project Developed for: BUSA 649 - Analytics-Based Community Project**  
+**Client: McGill University Football Team**  
+**Authors: Shuxi Chen, Hamza Javed, Junpeng Kou**  
+**Date: July 20, 2025**
+
+---
 
 ## 1. Description
 
-This project was developed in collaboration with the McGill Football team to support the coaching staff—specifically Maxime Chaput Dupuy and Christopher Clement—by building practical, automated solutions for their analytics workflows. The project was executed in two distinct streams:
+This repository contains the final deliverables for our community project with the McGill Football team. The project was executed in two distinct streams to support the analytical needs of Coaches Maxime Chaput Dupuy and Christopher Clement.
 
 #### Stream A: In-Game Analytics Automation (for Maxime)
-This stream focused on improving the efficiency and strategic value of in-game analysis using the team's existing **DV Sport platform**. We designed and delivered a suite of **10 automated reports** based on game-tracked datasets. These reports help coaches extract key insights related to play tendencies, directional efficiency, and player performance, all formatted for easy reuse each week. Eight of these reports are automated directly within DVSport, while two more complex reports are delivered via a supporting Excel template.
+This stream focused on improving the efficiency and strategic value of in-game analysis. We designed and delivered a suite of **10 automated reports** based on game data from the team's DVSport platform. Eight of these reports are designed to be automated directly within DVSport, while two more complex reports are delivered via a supporting Excel template.
 
-#### Stream B: External Data Integration (for Chris)
-This stream aimed to build a long-term infrastructure for integrating external data to support goals like scouting, recruiting, and performance benchmarking. A working data pipeline was created using `snscrape` to collect Twitter data, and a prototype pipeline was built for future integration with the official Twitter API v2.
-
----
-
-## 2. Tech Assets & Key Deliverables
-
-*   **DV Sport Report Templates (8):** In-platform report designs saved to the "Defaults List" for full automation.
-*   **Excel Analytics Workbook (2 Reports):** A single Excel file containing pivot tables for Reports 9 & 10, which require advanced calculations.
-*   **Data Dictionary (`Data_Dictionary.xlsx`):** A comprehensive guide defining all abbreviated column names from the raw DVSport data.
-*   **Python Scripts (Stream B):**
-    *   `snscrape_pipeline.py`: A fully functional script for scraping Twitter data.
-    *   `twitter_api_v2_prototype.py`: A well-documented prototype for future integration with the official Twitter API.
-*   **Configuration File (`config.py`):** An editable file for setting keywords, date ranges, and export paths for the Twitter scripts.
-*   **Sample Dataset:** `Sample_DVSport_Export.xlsx` to demonstrate the expected raw data format.
+#### Stream B: Social Media Analysis (for Chris)
+This stream focused on analyzing the team's external social media landscape. A working data pipeline was created to collect Twitter data related to Ivy League football programs, providing a new dataset for community engagement and recruitment analysis.
 
 ---
 
-## 3. Installation
+## 2. Handoff File Structure & Key Deliverables
 
-### For Maxime’s DV Sport & Excel Reports:
-No installation is needed.
-- The 8 core reports are already implemented and automated within the DVSport "Defaults List".
-- The supporting Excel Workbook requires only Microsoft Excel to open.
+This project is organized into two main folders, one for each project stream.
 
-### For Chris’s Twitter Pipeline:
-1.  **Clone the Repository:**
-    ```bash
-    git clone [URL_to_your_GitHub_repo]
-    ```
-2.  **Install Python:** Ensure you have Python 3.7+ installed on your system.
-3.  **Install Required Libraries:** Navigate to the project folder in your terminal and run:
-    ```bash
-    pip install pandas snscrape
-    ```
-4.  **Configure:** Open the `snscrape_pipeline.py` script and update the configuration variables as needed.
+### For Maxime - DVSport Report Support
+
+This folder contains all assets related to the DVSport reporting workflow.
+
+*   **DVSport 10 Reports Prototype.ipynb**
+    *   This Jupyter Notebook contains the complete Python code and logic used to reverse-engineer, validate, and prototype all 10 strategic reports. It serves as the technical documentation for how every calculation was derived.
+
+*   **DVSport Reports 9 & 10.xlsx**
+    *   This is the client-facing Excel Workbook. It is a ready-to-use template for the two most complex reports (QB Performance and OL/RB Yardage Attribution) that could not be fully implemented in DVSport.
+
+*   **DVSport Data Dictionary.xlsx**
+    *   A comprehensive guide defining all abbreviated column names from the raw DVSport data. This is a sustainable asset for any future analytics projects.
+
+### For Chris - Twitter Data Scraping
+
+This folder contains the assets for the social media analysis stream.
+
+*   **Twitter_Ivy_League_List.ipynb**
+    *   This Jupyter Notebook contains the fully functional Python data pipeline. It includes the code to query the Twitter (X) API, scrape relevant data, and structure it into a clean, usable format.
+
+### Project-Wide Documentation
+
+*   **Project Report.pdf**
+    *   The comprehensive final report detailing the project's background, methodology, findings, and recommendations for both streams.
+
+*   **ReadMe - McGill Football** (This Document)
+    *   The central guide for navigating the project deliverables, explaining installation, and usage.
+
+---
+
+## 3. Installation & Setup
+
+### For Maxime’s Deliverables:
+*   **DVSport Reports 9 & 10.xlsx**: No installation is needed. Requires Microsoft Excel to open.
+*   **DVSport 10 Reports Prototype.ipynb**: To run the code, you will need Python 3.7+ with standard data science libraries (pandas, numpy, etc.).
+
+### For Chris’s Deliverable:
+1.  **Open `Twitter_Ivy_League_List.ipynb`**: This notebook contains all the code and instructions.
+2.  **Install Required Libraries**: The notebook will have a cell at the top to install the necessary libraries, such as `pandas` and `snscrape`.
+3.  **Credentials**: To use the official Twitter API v2 functions, you will need to insert your own personal Bearer Token into the designated variable within the notebook.
 
 ---
 
 ## 4. Usage
 
-### Maxime’s Reports (Automated Workflow)
-**In-Platform Reports (Reports 1-8):**
-1.  Create a new game/project in DVSport.
-2.  The 8 reports will be **automatically generated** from the "Defaults List". No further action is required.
+### For Maxime’s Reports:
+1.  **In-Platform Automation:** The 8 core reports are designed to be saved to the DVSport "Defaults List" for full, zero-maintenance automation on all new games.
+2.  **Excel Reports (9 & 10):**
+    *   Export the raw game dataset from DVSport.
+    *   Open `DVSport Reports 9 & 10.xlsx` and paste the raw data into the **"Data-Input"** tab.
+    *   The "Report 9" and "Report 10" tabs will update automatically.
 
-**Excel Reports (Reports 9 & 10):**
-1.  Export the complete raw dataset for the desired game from DVSport.
-2.  Open the `McGill_Football_Advanced_Reports.xlsx` file.
-3.  Go to the "Data-Input" tab and paste the raw data.
-4.  Navigate to the "Report 9" and "Report 10" tabs. The pivot tables and visuals will **update automatically**.
-
-### Chris’s Twitter Pipeline:
-1.  Adjust the configuration in `snscrape_pipeline.py` (e.g., keywords, accounts, date ranges).
-2.  Run the script from your terminal:
-    ```bash
-    python snscrape_pipeline.py
-    ```
-3.  Review the exported `.csv` file in the `output/` folder. This structured data can be loaded into Excel, Tableau, or other analytics tools.
+### For Chris’s Twitter Analysis:
+1.  Open the `Twitter_Ivy_League_List.ipynb` notebook.
+2.  Adjust the configuration variables (e.g., keywords, accounts, date ranges) at the top of the notebook as needed.
+3.  Run the cells sequentially to execute the data scraping and analysis.
 
 ---
 
-## 5. Features
+## 5. Costs Involved
 
-### Maxime’s DV Sport Reports:
-*   10 structured analytical reports (8 in-platform, 2 in Excel).
-*   Dual "Global" and "Subgroup" views for comprehensive analysis.
-*   Breakdowns by Personnel, Formation, Down & Distance, and Field Zone.
-*   Directional tendency analysis (L/R, Field/Boundary).
-*   Yardage attribution model for OL vs. RB (in Excel).
-*   Designed for **non-technical reuse** by coaches.
-
-### Chris’s External Integration Stream:
-*   Configurable tweet scraping using `snscrape`.
-*   Outputs structured CSVs ready for analysis.
-*   Well-documented prototype for future Twitter API v2 integration.
-*   Modular design ready for expansion to CFL and Genius Sports APIs.
+*   All solutions delivered were built using free and open-source tools or existing client software. There are **no immediate costs** to use these deliverables.
+*   **Future Costs:** Robust, historical access to Twitter data via the official API v2 requires a paid subscription.
 
 ---
 
-## 6. Data Sources
-
-*   **Internal Data:** Game-by-game Excel/CSV exports from the **DVSport platform**.
-*   **External Data:** **Twitter (X)** via the `snscrape` library.
-
----
-
-## 7. Troubleshooting
-
-### Maxime’s Reports:
-*   **Excel reports show old data:** In Excel, go to the `Data` tab and click `Refresh All`.
-*   **Excel reports are broken:** Ensure the pasted data in the "Data-Input" tab matches the column structure of the sample file.
-
-### Chris’s Scripts:
-*   **Error: `ModuleNotFoundError`:** Ensure you have installed the required libraries by running `pip install pandas snscrape`.
-*   **No output generated:** Check that the date formats in the configuration are correct and that the script has permission to write to the `output/` folder.
-
----
-
-## 8. Costs Involved
-
-*   All solutions delivered were built using free and open-source tools (Python, `snscrape`) or existing client software (DVSport, Excel). There are **no immediate costs** to use these deliverables.
-*   **Future Costs:** Full, robust access to historical Twitter data via the official API v2 requires a paid subscription (e.g., Academic or Enterprise tiers). Future integrations with platforms like Genius Sports may also require credentials or licensing fees.
-
----
-
-## 9. Passwords and Credentials
-
-*   No credentials are required for the current implementation of the DVSport reports or the `snscrape` script.
-*   The `twitter_api_v2_prototype.py` will require a personal Bearer Token from a Twitter Developer account to function. This has not been included for security reasons.
-
----
-
-## 10. Contact Information
+## 6. Contact Information
 
 | Name | Role | Email |
 | :--- | :--- | :--- |
 | **Shuxi Chen** | McGill MMA '25 | `shuxi.chen@mail.mcgill.ca` |
 | **Hamza Javed** | McGill MMA '25 | `hamza.javed@mail.mcgill.ca` |
 | **Junpeng Kou** | McGill MMA '25 | `junpeng.kou@mail.mcgill.ca` |
-content_copy
-download
-Use code with caution.
-Markdown
