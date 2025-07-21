@@ -34,7 +34,6 @@ This project consists of the following key assets, organized into folders for ea
 *   **`For Chris - Twitter Data Scraping/`**
     *   `Twitter_Ivy_League_List.ipynb`: A Jupyter Notebook containing the functional Python pipeline for scraping and processing Twitter data.
 *   **`Project Report.pdf`**: The comprehensive final report detailing the project's background, methodology, findings, and recommendations.
-*   **`ReadMe - McGill Football`**: This handoff document.
 *   **GitHub Repository:** [https://github.com/shuxi-ch/MMA-Community-Project-McGill-Football-Handoff]
 
 ---
